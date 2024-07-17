@@ -1,34 +1,17 @@
-set(PREBUILT_MODULE_PATH ${CMAKE_BINARY_DIR}/mod)
+if(${CMAKE_VERSION} VERSION_LESS "3.28")
+    message(FATAL_ERROR "CMake version 3.28 or higher is required for C++20 modules support. You are running version ${CMAKE_VERSION}.")
+endif()
 
-function(add_module name)
-    file(MAKE_DIRECTORY ${PREBUILT_MODULE_PATH})
-    add_custom_target(${name}.pcm
-            COMMAND
-            ${CMAKE_CXX_COMPILER}
-            -std=gnu++20
-            -x c++
-            -fmodules
-#            --target=x86_64-apple-macosx12.6.0
-            -c
-            ${CMAKE_CURRENT_SOURCE_DIR}/${ARGN}
-            -Xclang -emit-module-interface
-            -o ${PREBUILT_MODULE_PATH}/${name}.pcm
-            )
-endfunction()
+set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 
-
-add_compile_options(-fmodules)
-add_compile_options(-fbuiltin-module-map)
-add_compile_options(-fimplicit-module-maps)
-add_compile_options(-fprebuilt-module-path=${PREBUILT_MODULE_PATH})
-add_compile_options(--target=x86_64-apple-macosx12.6.0)
-
-add_module(AdvancedMath AdvancedMath.cppm)
-add_module(Talk language.cppm)
-add_executable(Modules
+add_executable(Modules)
+target_sources(Modules
+        PUBLIC
         main.cpp
+)
+target_sources(Modules
+        PUBLIC
+        FILE_SET all_my_modules TYPE CXX_MODULES FILES
         AdvancedMath.cppm
         language.cppm
-        )
-add_dependencies(Modules AdvancedMath.pcm Talk.pcm)
-
+)
