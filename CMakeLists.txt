@@ -7,6 +7,8 @@ option(BUILD_BOOST_TESTS "Build Boost tests" ON)
 option(BUILD_QT_DEMO "Build Arkanoid demo" ON)
 option(BUILD_MODULES "Build Modules example" ON)
 
+option(BUILD_EMBEDDED_DEMO "Build Embedded demos" OFF)
+
 add_executable(demoMore main.cpp)
 
 if (BUILD_MODULES)
@@ -44,8 +46,13 @@ if (BUILD_QT_DEMO)
     add_subdirectory(Debug_demo)
     add_subdirectory(QML)
 endif ()
+
 add_subdirectory(Debug_extra)
-add_subdirectory(Debug_extra/FreeRTOS_demo)
+
+if (BUILD_EMBEDDED_DEMO)
+    add_subdirectory(Debug_extra/FreeRTOS_demo)
+    add_subdirectory(Debug_extra/LiveWatches)
+endif ()
 
 add_subdirectory(Valgrind_memcheck)
 add_subdirectory(Sanitizers)

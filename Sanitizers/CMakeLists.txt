@@ -1,3 +1,5 @@
+set(cmake_minimal_version 3.10)
+
 add_subdirectory(use_after_free)
 add_subdirectory(UMR)
 add_subdirectory(data_race)
