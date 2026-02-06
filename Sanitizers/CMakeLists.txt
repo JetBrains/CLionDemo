@@ -1,5 +1,3 @@
-set(cmake_minimal_version 3.10)
-
 include(../version.cmake)
 cmake_minimum_required(VERSION ${REQUIRED_CMAKE_VERSION} FATAL_ERROR)
 
