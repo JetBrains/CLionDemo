@@ -1,3 +1,6 @@
+include(../../version.cmake)
+cmake_minimum_required(VERSION ${REQUIRED_CMAKE_VERSION} FATAL_ERROR)
+
 if (APPLE OR WIN32)
     return()
 endif ()

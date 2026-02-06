@@ -1,3 +1,6 @@
+include(../version.cmake)
+cmake_minimum_required(VERSION ${REQUIRED_CMAKE_VERSION} FATAL_ERROR)
+
 if(${CMAKE_VERSION} VERSION_LESS "3.28")
     message(FATAL_ERROR "CMake version 3.28 or higher is required for C++20 modules support. You are running version ${CMAKE_VERSION}.")
 endif()

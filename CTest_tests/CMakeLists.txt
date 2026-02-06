@@ -1,3 +1,6 @@
+include(../version.cmake)
+cmake_minimum_required(VERSION ${REQUIRED_CMAKE_VERSION} FATAL_ERROR)
+
 ### CTest reusing Boost tests from boost_demo
 add_test(NAME ctest1_with_boost_tests COMMAND boost_demo)
 

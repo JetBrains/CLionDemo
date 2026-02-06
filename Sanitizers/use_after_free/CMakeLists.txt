@@ -1,4 +1,6 @@
-cmake_minimum_required(VERSION ${cmake_minimal_version})
+include(../../version.cmake)
+cmake_minimum_required(VERSION ${REQUIRED_CMAKE_VERSION} FATAL_ERROR)
+
 project(use_after_free)
 
 set(CMAKE_CXX_STANDARD 11)

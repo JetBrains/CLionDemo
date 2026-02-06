@@ -1,4 +1,6 @@
-cmake_minimum_required(VERSION 3.24)
+include(version.cmake)
+cmake_minimum_required(VERSION ${REQUIRED_CMAKE_VERSION} FATAL_ERROR)
+
 project(CLionDemo)
 
 set(CMAKE_CXX_STANDARD 20)

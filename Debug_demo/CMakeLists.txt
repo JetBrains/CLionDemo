@@ -1,4 +1,6 @@
 #Don't forget to add -DCMAKE_MODULE_PATH=<qt5 path>
+include(../version.cmake)
+cmake_minimum_required(VERSION ${REQUIRED_CMAKE_VERSION} FATAL_ERROR)
 
 set(QT_VERSION 6)
 

@@ -1,3 +1,6 @@
+include(../version.cmake)
+cmake_minimum_required(VERSION ${REQUIRED_CMAKE_VERSION} FATAL_ERROR)
+
 set(LIB_SOURCE_FILES sample_lib.cpp sample_lib.h)
 add_library(sample_lib ${LIB_SOURCE_FILES})
 

@@ -2,6 +2,8 @@
 #- Check CMake completion
 #- Check file references (Rename)
 #- Check live templates (boost, boost with libs)
+include(../version.cmake)
+cmake_minimum_required(VERSION ${REQUIRED_CMAKE_VERSION} FATAL_ERROR)
 
 add_executable(CMake_support main.cpp Boo.h)
 
