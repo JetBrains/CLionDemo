@@ -18,6 +18,7 @@ endif ()
 add_subdirectory(Code_Analysis)
 
 add_subdirectory(Code_Generation)
+add_subdirectory(Constexpr_debug)
 add_subdirectory(Completion)
 add_subdirectory(Documentation)
 add_subdirectory(Param_Info)
