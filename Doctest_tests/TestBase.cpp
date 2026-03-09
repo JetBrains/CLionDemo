@@ -1,6 +1,4 @@
-// FILE_TESTS_FILE
-
-#include "doctest.h"
+#include <doctest/doctest.h>
 #include <iostream>
 
 // helper for throwing exceptions

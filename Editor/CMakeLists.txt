@@ -1,6 +1,6 @@
 if($ENV{CLION_IDE})
     message("CLion IDE is running!")
-elseif()
+else()
     message("Non-CLion is running!")
 endif()
 
